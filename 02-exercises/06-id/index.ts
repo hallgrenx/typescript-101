@@ -9,16 +9,17 @@
 //
 // The "uuid" package does not contain any TypeScript
 // definitions, please pay attention to the help VS Code is
-// trying to give you in that respect.
+// trying to give you in that respect.s
+
+import { v4 as uuidv4 } from "uuid"
 
 /**
  * Returns a UUID of version 4.
  */
 const createId = (): string => {
-    throw new Error("Not implemented")
+    return uuidv4()
 }
 
-const id = createId()
-console.log(id) // XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX (where X is a hexadecimal number)
+console.log(createId()) // XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX (where X is a hexadecimal number)
 
 export {}

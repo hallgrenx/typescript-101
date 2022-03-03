@@ -9,7 +9,9 @@ const sleep = async (ms: number) => {
 }
 
 const simulateWorkAndReturn = async (value: number): Promise<number> => {
+    console.log("simulate work for ", value)
     await sleep(3000)
+    console.log("done ", value)
 
     return value
 }
@@ -18,7 +20,7 @@ const simulateWorkAndReturn = async (value: number): Promise<number> => {
  * Implement this function to add the values returned from the two promises.
  */
 const add = async (x: Promise<number>, y: Promise<number>): Promise<number> => {
-    throw new Error("Not implemented")
+    return (await x) + (await y)
 }
 
 // We need to wrap the code in self invoking function
@@ -27,7 +29,7 @@ const add = async (x: Promise<number>, y: Promise<number>): Promise<number> => {
 ;(async () => {
     const x = simulateWorkAndReturn(3)
     const y = simulateWorkAndReturn(4)
-    
+
     const result = await add(x, y)
 
     console.log(result) // 7

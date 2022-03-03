@@ -6,9 +6,21 @@
  * Returns the minimum and maximum number from an array of numbers.
  */
 const findMinMax = (numbers: number[]): { min: number; max: number } => {
-    throw new Error("Not implemented")
-}
+    let min: number = numbers[0]
+    let max: number = numbers[0]
 
+    for (let number of numbers) {
+        if (number < min) {
+            min = number
+        }
+
+        if (number > max) {
+            max = number
+        }
+    }
+
+    return { min, max }
+}
 let result = findMinMax([3, 5, 2, 7, 9, 1])
 console.log(result) // { min: 1, max: 9 }
 
